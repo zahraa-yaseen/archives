@@ -19,8 +19,9 @@ return new class extends Migration
             $table->Integer('book_no');
             $table->dateTime('book_date');
             $table->string('book_details'); 
-            $table->Integer('depart-id');
-            $table->Integer('division-id');
+            $table->Integer('depart_id');
+            $table->Integer('division_id');
+            $table->Integer('user_id');
 
 
 
