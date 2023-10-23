@@ -15,16 +15,14 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->Integer('book_type_id');
+            $table->Integer('book_type_id')->nullable();
             $table->Integer('book_no');
             $table->dateTime('book_date');
-            $table->string('book_details'); 
-            $table->Integer('depart_id');
-            $table->Integer('division_id');
-            $table->Integer('user_id');
-
-
-
+            $table->string('book_details');
+            $table->string('cover');
+            $table->Integer('depart_id')->nullable();
+            $table->Integer('division_id')->nullable();
+            $table->Integer('user_id')->nullable();
             $table->timestamps();
         });
     }

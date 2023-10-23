@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\division;
+use App\Models\Division;
 use Illuminate\Http\Request;
 
 class DivisionController extends Controller
@@ -41,10 +41,10 @@ class DivisionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\division  $division
+     * @param  \App\Models\Division  $Division
      * @return \Illuminate\Http\Response
      */
-    public function show(division $division)
+    public function show(Division $Division)
     {
         //
     }
@@ -52,10 +52,10 @@ class DivisionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\division  $division
+     * @param  \App\Models\Division  $Division
      * @return \Illuminate\Http\Response
      */
-    public function edit(division $division)
+    public function edit(Division $Division)
     {
         //
     }
@@ -64,10 +64,10 @@ class DivisionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\division  $division
+     * @param  \App\Models\Division  $division
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, division $division)
+    public function update(Request $request, Division $Division)
     {
         //
     }
@@ -75,10 +75,10 @@ class DivisionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\division  $division
+     * @param  \App\Models\Division  $Division
      * @return \Illuminate\Http\Response
      */
-    public function destroy(division $division)
+    public function destroy(Division $Division)
     {
         //
     }

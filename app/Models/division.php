@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class division extends Model
+class Division extends Model
 {
-    use HasFactory;
+    
     use HasFactory;
     protected $fillable = [
-        'depart-id',
+        'depart_id',
         'name',
         
     ];
-    public function departs(){
-        return $this ->belongsTo('App\departs' ,'depart-id');
+    public function depart(){
+        return $this ->belongsTo('App\Depart' ,'depart_id');
     }
 }
