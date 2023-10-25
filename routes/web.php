@@ -20,32 +20,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Home Routes
      */
     Route::get('/', 'HomeController@index')->name('home.index');
-    
-
-    Route::group(['middleware' => ['guest']], function() {
-        /**
-         * Register Routes
-         */
-        Route::get('/register', 'RegisterController@show')->name('register.show');
-        Route::post('/register', 'RegisterController@register')->name('register.perform');
-
-        /**
-         * Login Routes
-         */
-        Route::get('/login', 'LoginController@show')->name('login.show');
-        Route::post('/login', 'LoginController@login')->name('login.perform');
-
-    });
-
-    Route::group(['middleware' => ['auth']], function() {
-        /**
-         * Logout Routes
-         */
-        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
-        /**
-         * book Routes
-         */
-        Route::get('/books/create', 'BookController@create')->name('books.create');
+    Route::get('/books/create', 'BookController@create')->name('books.create');
         Route::post('/book', 'BookController@store')->name('books.store');
         Route::get('/books/index', 'BookController@index')->name('books.index');
         Route::get('/books/{id}', 'BookController@show')->name('books.show');
@@ -70,8 +45,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 /**
          * departs Routes
          */
-        Route::get('/debarts', 'DepartController@create')->name('departs.create');
+        Route::get('/departs', 'DepartController@create')->name('departs.create');
+        Route::get('/departs/index', 'DepartController@index')->name('departs.index');
+        Route::get('/departs/show', 'DepartController@show')->name('departs.show');
         Route::post('/debarts/store', 'DepartController@store')->name('departs.store');
+        Route::delete('/departs/destroy', 'DepartController@destroy')->name('departs.destroy');
+        Route::get('/departs/edit', 'DepartController@edit')->name('departs.edit');
+
+
 
         /**
          * divisions Routes
@@ -79,6 +60,31 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/divisions', 'DivisionController@create')->name('divisions.create');
         Route::post('/divisions/store', 'DivisionController@store')->name('divisions.store');
 
+        
+
+    Route::group(['middleware' => ['guest']], function() {
+        /**
+         * Register Routes
+         */
+        Route::get('/register', 'RegisterController@show')->name('register.show');
+        Route::post('/register', 'RegisterController@register')->name('register.perform');
+
+        /**
+         * Login Routes
+         */
+        Route::get('/login', 'LoginController@show')->name('login.show');
+        Route::post('/login', 'LoginController@login')->name('login.perform');
+
+    });
+
+    Route::group(['middleware' => ['auth']], function() {
+        /**
+         * Logout Routes
+         */
+        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+        /**
+         * book Routes
+         */
         
 
 

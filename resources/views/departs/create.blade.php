@@ -10,11 +10,14 @@
         <div class="card-body">
             <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
            </div>
+           <div class="card-body">
+           <h1>اضافة قسم</h1>
+           </div>
         <form action="{{ route('departs.store') }}" method="post" >
-        @csrf
+        @csrf   
         
   <div class="mb-3">
-    <label for="name" class="form-label">الاسم  </label>
+    <label for="name" class="form-label">اسم القسم  </label>
     <input type="text" class="form-control" name="name" >
   </div>
 

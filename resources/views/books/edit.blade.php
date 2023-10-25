@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="book_details">تاريخ الكتاب</label>
+                        <label for="book_details">  موضوع الكتاب</label>
                         <textarea class="form-control" id="book_details" name="book_details" rows="3" required>{{ $book->book_details }}</textarea>
                     </div>
                    

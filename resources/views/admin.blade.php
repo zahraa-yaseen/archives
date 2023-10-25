@@ -279,7 +279,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-              <a href="{{ route('departs.create') }}" class="btn btn-outline-light me-2"> الاقسام   </a>
+              <a href="{{ route('departs.index') }}" class="btn btn-outline-light me-2"> الاقسام   </a>
 
               
                 <i class="fas fa-angle-left right"></i>
@@ -342,7 +342,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-              <a href="{{ route('departs.create') }}" class="btn btn-outline-light me-2"> الشعب   </a>
+              <a href="{{ route('divisions.create') }}" class="btn btn-outline-light me-2"> الشعب   </a>
 
               </p>
             </a>

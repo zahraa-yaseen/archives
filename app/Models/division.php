@@ -14,7 +14,5 @@ class Division extends Model
         'name',
         
     ];
-    public function depart(){
-        return $this ->belongsTo('App\Depart' ,'depart_id');
-    }
+    
 }

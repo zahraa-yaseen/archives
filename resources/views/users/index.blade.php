@@ -7,6 +7,7 @@
         <div class="card-body">
             <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
            </div>
+           
         <table class="table caption-top">
   <caption>الكتب</caption>
   <thead>
@@ -40,11 +41,7 @@
         <input type="text" class="form-control" id="name" name="name"
                             value="{{ $user->name }}" required    style="border: none;width: 150px;" >
                             </td>
-
-
-
                             <td></td>
-       
         <!-- <td>{{ $user->password }}</td>-->
         <td> <input type="text" class="form-control" id="email" name="email"
                             value="{{ $user->email}}" required    style="border: none;width: 150px;" ></td>
@@ -76,8 +73,8 @@
     <td>
             <select id="inputState" class="form-select" style="width: 150px;
     direction: rtl;">
-     @foreach ($departs as $depart)
-      <option value="{{ $depart->id }}" selected>{{ $depart->name }}</option>
+     @foreach ($divisions as $division)
+      <option value="{{ $division->id }}" selected>{{ $division->name }}</option>
      @endforeach
      
     </select></td>

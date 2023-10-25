@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Depart;
+use App\Models\Division;
+
 use Illuminate\Http\Request;
 
 class DepartController extends Controller
@@ -14,7 +16,8 @@ class DepartController extends Controller
      */
     public function index()
     {
-        //
+        $departs = Depart::all();
+        return view('departs.index' , compact('departs' ));
     }
 
     /**
@@ -47,8 +50,8 @@ class DepartController extends Controller
                 ]
         );
         
-        return redirect('/') 
-          ->with('success', 'book created successfully.');
+        return redirect('/departs/index') 
+          ;
     }
 
     /**
@@ -57,10 +60,16 @@ class DepartController extends Controller
      * @param  \App\Models\Depart  $Depart
      * @return \Illuminate\Http\Response
      */
-    public function show(Depart $Depart)
+    public function show(Request $request)
     {
-        //
+       // return $request;
+        $depart =Depart::find($request->id);
+        $division =Division::find($request->id);
+
+    
+        return view('departs.show',compact('depart' ,'division'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -70,7 +79,7 @@ class DepartController extends Controller
      */
     public function edit(Depart $Depart)
     {
-        //
+        
     }
 
     /**
@@ -91,8 +100,12 @@ class DepartController extends Controller
      * @param  \App\Models\Depart  $Depart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Depart $Depart)
+    public function destroy(Request $request)
     {
-        //
+        $depart = Depart::find($request->id);
+        $depart->delete();
+
+        return redirect()->route('departs.index')
+            ->with('success', 'book deleted successfully');
     }
 }

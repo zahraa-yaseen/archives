@@ -35,7 +35,21 @@ class DivisionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+           
+        ]);
+        
+       
+        $divisions = Division::create([
+            "name" =>$request->name,
+            "depart_id" =>$request->depart_id,
+           
+                ]
+        );
+        
+        return redirect('/departs/index') 
+         ;
     }
 
     /**
