@@ -1,0 +1,41 @@
+@extends('layouts.auth-master')
+
+@section('content')
+    <form method="post" action="{{ route('users.store') }}">  
+                   @csrf
+       
+        <h1 class="h3 mb-3 fw-normal">اضافه</h1>
+
+        <div class="form-group form-floating mb-3">
+        
+            <input type="text" class="form-control" name="name"  placeholder="" required="required" autofocus>
+            <label for="name">الاسم</label>
+            
+        </div>
+<div class="form-group form-floating mb-3">
+
+            <input type="email" class="form-control" name="email"  placeholder="name@example.com" required="required" autofocus>
+            <label for="email"> الايميل</label>
+        </div>
+
+        <div class="form-group form-floating mb-3">
+   
+            <input type="text" class="form-control" name="username"  placeholder="Username" required="required" autofocus>
+            <label for="username">اسم المستخدم</label>
+           
+        </div>
+        
+        <div class="form-group form-floating mb-3">
+        
+            <input type="password" class="form-control" name="password"  placeholder="Password" required="required">
+            <label for="Password">كلمه السر</label>
+           
+        </div>
+
+       
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">ارسال</button>
+        
+      
+    </form>
+@endsection

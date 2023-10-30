@@ -16,7 +16,7 @@
                 </div>
                
 
-                <form action="{{ route('divisions.store') }}" method="post" >
+                <form action="{{ route('divisions.store' ) }}" method="post" >
         @csrf   
         <div class="form-group">
                         

@@ -3,10 +3,15 @@
 @section('content')
 <body>
     <main class="container" >
+    
         @yield('content')
+        <div class="card-body">
+            <a class="navbar-brand h1" href="{{ route('users.create') }}">اضافه</a>
+           </div>
         <div class="card-body">
             <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
            </div>
+           
            
         <table class="table caption-top">
   <caption>الكتب</caption>
@@ -27,16 +32,11 @@
   
   <tbody>
   @foreach ($users as $user)
-
-
-
-
   <tr>
   <form action="{{ route('users.update', $user->id) }}" method="post">
   @csrf
   @method('PUT')
         <td scope="row">{{ $user->id }}</td>
-
         <td>
         <input type="text" class="form-control" id="name" name="name"
                             value="{{ $user->name }}" required    style="border: none;width: 150px;" >
@@ -96,6 +96,8 @@
 
 
 @endforeach
+
+
   </tbody>
  
 

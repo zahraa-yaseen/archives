@@ -40,12 +40,7 @@ class UserTypeController extends Controller
         $request->validate([
             'name' => 'required',
             'sequence' => 'required'
-           
-           
-            
         ]);
-        
-       
         $user_type = UserType::create([
             "name" =>$request->name,
             "sequence" =>$request->sequence

@@ -51,9 +51,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users,email',
+            'username' => 'required|unique:users,username',
+            'password' => 'required|min:8',
+            
+        ]);
+        
+        $user = User::create($request->all());
+        return redirect('/users/index');
     }
+    
 
+
+    
+
+    
+
+   
     /**
      * Display the specified resource.
      *
@@ -93,7 +109,7 @@ class UserController extends Controller
            
             
         ]);
-        return  dd($request);
+       
        
         $user = User::find($id);
         $user->name  = $request->name;

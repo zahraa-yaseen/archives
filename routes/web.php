@@ -37,9 +37,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
        /** users  Routes
         */
         Route::get('/users/index', 'UserController@index')->name('users.index');
+        Route::get('/users/create', 'UserController@create')->name('users.create');
+
         Route::put('/users/update/{id}', 'UserController@update')->name('users.update');
         //Route::get('/users/create', 'UserController@create')->name('users.create');
-        //Route::post('/users', 'UserController@store')->name('users.store');
+        Route::post('/users/store', 'UserController@store')->name('users.store');
 
 
 /**
