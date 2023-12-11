@@ -1,12 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.87.0">
-    <title>Fixed top navbar example · Bootstrap v5.1</title>
+    
 
     <!-- Bootstrap core CSS -->
     <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
@@ -31,28 +26,40 @@
     <!-- Custom styles for this template -->
     <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
 </head>
+
+    
+   
+
+
+@extends('layouts.app-master')
+
+@section('content')
 <body>
     
    
 
     <main class="container" >
-        @yield('content')
+       
+       
         <div class="card-body">
             <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
            </div>
-        <form action="{{ route('books.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('books.store' , $bookType->id) }}" method="post" enctype="multipart/form-data">
         @csrf
-        
+        <div class="form-group">
+         <input type="hidden" class="form-control" name="book_type_id" value="{{ $bookType->id }}" >
+            </div>
   <div class="mb-3">
     <label for="book_no" class="form-label">رقم الكتب</label>
-    <input type="text" class="form-control" name="book_no" aria-describedby="number">
+    <input  type="text" class="form-control" name="book_no" aria-describedby="number">
   </div>
 
 
 
   <div class="mb-3">
     <label for="book_date" class="form-label">تاريخ الكتاب</label>
-    <input type="text" class="form-control" name="book_date">
+
+    <input type="date" name="book_date" class="form-control"  placeholder="dd-mm-yyyy"> 
   </div>
   
 
@@ -62,11 +69,26 @@
   </div>
 
   <div class="mb-3">
+    <label for="book_details" class="form-label">جهة الكتاب</label>
+    <input type="text" class="form-control" name="book_to_from">
+  </div>
+
+  
+
+  <div class="mb-3">
   <label class="m-2">صوره لكتاب</label>
    <input type="file" id="input-file-now-custom-3" class="form-control m-2" name="cover">
+  </div>
+    <div class="mb-3">
+        <label class="m-2"> </label>
+      
+         <input  type="file"class="form-control m-2 " id="show_file-image" name="images[]" multiple style="display: none;" >
+         <input  type="file"class="form-control m-2 " id="show_file-image" name="images[]" multiple style="display: none;" >
+         
+        
+         <button type="button" onclick="toggleClass()">+</button>
+
     </div>
-
-
   <button type="submit" class="btn btn-primary">ارسال</button>
 </form>
     </main>
@@ -74,4 +96,3 @@
     <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
       
   </body>
-</html>

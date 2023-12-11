@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\UserType;
 use App\Models\Depart;
+use App\Models\Book;
+
 use App\Models\Division;
 
 
@@ -51,16 +53,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        /*$request->validate([
             'name' => 'required',
             'email' => 'required|email:rfc,dns|unique:users,email',
             'username' => 'required|unique:users,username',
             'password' => 'required|min:8',
             
-        ]);
+        ]);*/
+        
         
         $user = User::create($request->all());
-        return redirect('/users/index');
+        
+        return redirect('/users_index')->with('success', "تم اضافة مستخدم جديد للنظام" . $user->name);
     }
     
 
@@ -76,9 +80,14 @@ class UserController extends Controller
      * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $User)
+    public function show($id)
     {
-        //
+
+
+
+        $depart = Depart::find($id);
+        $users = User::where('depart_id',$id)->get();
+        return view('departs.showuser', compact('users','depart'));
     }
 
     /**
@@ -101,16 +110,14 @@ class UserController extends Controller
      */
     public function update(Request $request,  $id)
     {
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required',
-            'password' => 'required',
-            'user_types_id'=> 'required'
-           
-            
-        ]);
-       
-       
+        // $request->validate([
+        //     'name' => 'required|max:255',
+        //     'email' => 'required',
+        //     'password' => 'required',
+        //     'user_types_id'=> 'required'
+        // ]);
+      
+        
         $user = User::find($id);
         $user->name  = $request->name;
         $user->email  = $request->email;
@@ -126,7 +133,7 @@ $user->save();
 
        
 
-        return redirect()->route('/')->with('success', 'book created successfully.');
+        return redirect()->route('users.index')->with('success',  ' تم تحديث معلومات المستخدم' . $user->name);
            
     }
 
@@ -136,8 +143,34 @@ $user->save();
      * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $User)
-    {
-        //
+    public function destroy(Request $request)
+    { 
+        $user = User::find($request->u_id);
+        //$user = User::where($request->d_id,'depart_id')->get();
+
+        $depart = Depart::where('id',$request->d_id)->first();
+       $book= Book::where('depart_id',$request->d_id)->get();
+       $division = Division::where('depart_id',$request->d_id)->first();
+
+   /*if($user->id==$request->u_id){
+    $user->delete();
+        return redirect()->route('show.user',$request->d_id)->with('success', "تم حذف مستخدم   " . $user->name);
+
+}*/
+       
+        if ($depart!==null) {
+            return redirect()->route('show.user',$request->d_id)->with('error',  ' لا يمكن حذف المستخدم  لان ضمن قسم     '  . $depart->name );
+        } 
+    elseif ( $division!==null) {
+            return redirect()->route('show.user',$request->d_id)->with('error',  ' لا يمكن حذف المستخدم  لان يحتوي على  عدد شعب ' .$division->name);
+        }
+    elseif(count($book)!==0){
+        return redirect()->route('show.user',$request->d_id)->with('error',  ' لا يمكن حذف المستخدم  لان يحتوي على  عدد كتب ' .count( $book));
+
     }
+else{
+    $user->delete();
+        return redirect()->route('show.user',$request->d_id)->with('success', " تم حذف مستخدم   " . $user->name);
+
+    }}
 }

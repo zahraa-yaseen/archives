@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Division;
+use App\Models\Depart;
 use Illuminate\Http\Request;
 
 class DivisionController extends Controller
@@ -48,8 +49,8 @@ class DivisionController extends Controller
                 ]
         );
         
-        return redirect('/departs/index') 
-         ;
+        return redirect('/departs_home')  ->with('success',  'تم اضافه شعبه ' . $request->name .'');
+         
     }
 
     /**
@@ -58,9 +59,12 @@ class DivisionController extends Controller
      * @param  \App\Models\Division  $Division
      * @return \Illuminate\Http\Response
      */
-    public function show(Division $Division)
+    public function show($id)
     {
-        //
+
+        $depart = Depart::find($id);
+        $divisions = Division::where('depart_id', $id)->get();
+        return view('departs.showdivision', compact('divisions','depart'));
     }
 
     /**
@@ -92,8 +96,17 @@ class DivisionController extends Controller
      * @param  \App\Models\Division  $Division
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Division $Division)
+    public function destroy(Request $request)
     {
-        //
+  
+
+
+       
+
+        $division = Division::find($request->id);
+        $division->delete();
+
+        return redirect('/show_dividions_'.$request->id) 
+        ->with('success',  ' حذف الشعبه'  . ' ' .  $division->name   );
     }
 }

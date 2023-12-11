@@ -13,21 +13,21 @@ class Book extends Model
         'book_no',
         'book_date',
         'book_details',
+       'book_to_from',
         'cover',
         'depart_id',
         'user_id',
         'division_id'
     ];
-    public function depart(){
-        return $this ->belongsTo('App\Depart' ,'depart_id');
+    public function booktype(){
+        return $this->belongsTo('App\BookType','book_type_id' );
     }
-    public function division(){
-        return $this ->belongsTo('App\Division' ,'division_id');
-    }
-    public function book_type(){
-        return $this ->belongsTo('App\Book_Type' ,'book_type_id');
-    }
-    public function user(){
-        return $this ->belongsTo('App\User' ,'user_id');
-    }
+    public function image(){
+        return $this->hasMany(Image::class );
+                               
+ 
+ 
+ 
+ 
+ }
 }

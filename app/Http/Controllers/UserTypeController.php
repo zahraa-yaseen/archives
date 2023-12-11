@@ -48,8 +48,8 @@ class UserTypeController extends Controller
                 ]
         );
         
-        return redirect('/') 
-          ->with('success', 'book created successfully.');
+        return redirect('/usertypes_create') 
+          ->with('success', 'تم اضافه مستخدم للنظام');
     }
 
     /**

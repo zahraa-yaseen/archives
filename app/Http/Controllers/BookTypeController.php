@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book_Type;
+use App\Models\BookType;
+use App\Models\Book;
+
+
 use Illuminate\Http\Request;
 
 class BookTypeController extends Controller
@@ -14,7 +17,14 @@ class BookTypeController extends Controller
      */
     public function index()
     {
-        //
+        $booktype = BookType::where('division_id', auth()->user()->division_id)->with('books')->get();
+       
+
+return view('books.index', compact('booktype'));
+
+
+
+
     }
 
     /**
@@ -24,7 +34,7 @@ class BookTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.book_types');
     }
 
     /**
@@ -35,7 +45,22 @@ class BookTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       /* $request->validate([
+            'name' => 'required',
+            'sequence' => 'required'
+        ]);*/
+
+        $user = auth()->user();
+        $Booktype = BookType::create([
+            "name" =>$request->name,
+            "division_id" =>$user->division_id,
+            "sequence" =>$request->sequence
+            
+                ]
+        );
+        
+        return redirect('/booktypes_index') 
+          ->with('success', 'تم اضافه تصنيف كتب ' . $Booktype->name );
     }
 
     /**
@@ -44,10 +69,28 @@ class BookTypeController extends Controller
      * @param  \App\Models\Book_Type  $Book_Type
      * @return \Illuminate\Http\Response
      */
-    public function show(Book_Type $Book_Type)
-    {
-        //
-    }
+    public function show($id)
+{
+
+
+    $booktype = BookType::where('division_id', auth()->user()->division_id)->with('books')->get();
+    
+
+    
+
+    
+      
+
+        return view('books.allbooks', compact('booktype'));}
+
+
+
+
+
+
+
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -78,8 +121,11 @@ class BookTypeController extends Controller
      * @param  \App\Models\Book_Type  $Book_Type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book_Type $Book_Type)
+    public function destroy($id)
     {
-        //
+        $booktype = BookType::find($id);
+        $booktype->delete();
+        return redirect('/booktypes_index') 
+        ->with('success', ' تم حذف صنف الكتاب' );
     }
 }

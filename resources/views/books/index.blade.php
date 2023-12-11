@@ -1,4 +1,5 @@
-@extends('layouts.app-master')
+
+  @extends('layouts.app-master')
 
 @section('content')
 <body>
@@ -6,20 +7,35 @@
    
 
     <main class="container" >
+    <div>
+    @if( $message =Session::get('success'))
+                    <div class="card-header">
+                            <h5 class="card-title"> {{$message}}</h5>
+                        </div>
+                    @endif
+</div>
+
         @yield('content')
         <div class="card-body">
+            <a class="navbar-brand h1" href="{{ route('book_types.create') }}">اضافة تصنيف كتب</a>
+           </div>
+           
+           <div class="card-body">
             <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
            </div>
         <table class="table caption-top">
-  <caption>الكتب</caption>
+  <caption>اصناف الكتب</caption>
   <thead>
     <tr>
-      <th scope="col"># </th>
+  
 
-      <th scope="col">رقم الكتاب</th>
-      <th scope="col">تاريخ الكتاب</th>
-      <th scope="col">الموضوع</th>
-      <th scope="col">الحالات</th>
+<th scope="col">اسم الملف </th>
+
+<th scope="col">التسلسل</th>
+<th scope="col">عدد الكتب</th>
+
+
+
 
 
 
@@ -27,38 +43,56 @@
   </thead>
 
   <tbody>
-  @foreach ($book as $item)
+  @foreach ($booktype as $booktype)
+ 
     <tr>
-        <th scope="row">{{ $item->id }}</th>
-        <td>{{ $item->book_no }}</td>
-        <td>{{ $item->book_date }}</td>
-        <td>{{ $item->book_details }}</td>
-        <!--<td>{{ $item->cover }}</td>-->
+        <td>{{ $booktype->name }}</td>
+        <td>{{ $booktype->sequence }}</td>
+       <td>
+      
+  
+   {{count($booktype ->books)}}
+
+</td>
+        
         <td class="Cases" style="display: flex;">
 
-        <div class="col-sm">
-        <a href="{{ route('books.show', $item->id) }}" class="btn btn-primary btn-sm">عرض</a>
+  <div class="col-sm">
+ <a href="{{ route('books.create' ,$booktype->id) }}" class="btn btn-primary btn-sm">اضافة كتاب</a>
+</div>
+
+
+
+
+
+
+ <div class="col-sm">
+ <a href="{{ route('allbooks.show', $booktype->id ) }}" class="btn btn-primary btn-sm">عرض الكتب</a>
 </div>
 
 
 <div class="col-sm">
-                                    <form action="{{route('books.destroy', $item->id) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        
-                                        <button type="submit" class="btn btn-danger btn-sm">حذف</button>
-                                    </form>
-                                </div>
+    <form action="{{route('booktype.destroy', $booktype->id) }}" method="post">
+                  @csrf
+        @method('DELETE')                         
+          <button type="submit" class="btn btn-danger btn-sm">حذف</button>
+             </form>
+         </div>
 
-                                <div class="col-sm">
-                                <a href="{{ route('books.edit', $item->id) }}" class="btn btn-primary btn-sm">تعديل</a>
+         
 
-</div>
 
         </td>
     </tr>
+   
 @endforeach
+
+
+
+
   </tbody>
 </table>
   </body>
   @endsection
+
+

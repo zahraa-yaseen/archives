@@ -19,6 +19,7 @@ return new class extends Migration
             $table->Integer('book_no');
             $table->dateTime('book_date');
             $table->string('book_details');
+            $table->string('book_to_from');
             $table->string('cover');
             $table->Integer('depart_id')->nullable();
             $table->Integer('division_id')->nullable();

@@ -6,27 +6,28 @@
    
 
 <main class="container" >
-        <h2>اضافة مستخدين للنظام</h2>
-        <div>
+<div>
     @if( $message =Session::get('success'))
                     <div class="card-header">
-                            <p > {{$message}}</p>
+                            <h5 class="card-title"> {{$message}}</h5>
                         </div>
                     @endif
 </div>
-        <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
+
+<div class="card-body">
+            <h3> اضافة تصنيف الكتاب</h3>
            </div>
-        <form action="{{ route('user_types.store') }}" method="post" >
+        <div class="card-body">
+            <a class="navbar-brand h1" href="{{ route('book_types.index') }}">الرجوع</a>
+           </div>  
+        <form action="{{ route('book_types.store') }}" method="post" >
         @csrf
         
   <div class="mb-3">
-    <label for="name" class="form-label">الاسم </label>
+    <label for="name" class="form-label">الاسم</label>
     <input type="text" class="form-control" name="name" >
   </div>
-
-
-
+  
   <div class="mb-3">
     <label for="sequence" class="form-label">التسلسل </label>
     <input type="text" class="form-control" name="sequence" >

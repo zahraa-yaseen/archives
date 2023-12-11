@@ -1,12 +1,12 @@
 @extends('layouts.auth-master')
 
 @section('content')
-    <form method="post" action="{{ route('users.store') }}">  
+    <form method="post" action="{{ route('depart_user.store' ,$depart->id) }}">  
                    @csrf
        
         <h1 class="h3 mb-3 fw-normal">اضافه مستخدم</h1>
         <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('users.index') }}">الرجوع</a>
+            <a class="navbar-brand h1" href="{{ route('departs.index' ) }}">الرجوع</a>
            </div>
 
 
@@ -35,6 +35,7 @@
             <label for="Password">كلمه السر</label>
            
         </div>
+        <input type=hidden  name="depart_id" value="{{$depart->id}}" >  
 
        
 

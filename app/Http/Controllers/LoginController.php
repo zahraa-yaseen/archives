@@ -15,6 +15,7 @@ class LoginController extends Controller
      */
     public function show()
     {
+       
         return view('auth.login');
     }
 
@@ -27,9 +28,14 @@ class LoginController extends Controller
      */
     public function login(LoginRequest $request)
     {
+
+
+
+
         $credentials = $request->getCredentials();
 
         if(!Auth::validate($credentials)):
+           
             return redirect()->to('login')
                 ->withErrors(trans('auth.failed'));
         endif;
@@ -46,7 +52,6 @@ class LoginController extends Controller
      * 
      * @param Request $request
      * @param Auth $user
-     * 
      * @return \Illuminate\Http\Response
      */
     protected function authenticated(Request $request, $user) 

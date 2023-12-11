@@ -1,53 +1,76 @@
 @extends('layouts.app-master')
 
 @section('content')
-<body>
-    <main class="container" >
-        @yield('content')
-        <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
-           </div>
-           <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('departs.create') }}">اضافه</a>
-           </div>
+<body style="direction: rtl;">
+<main class="container" >
+    <div>
+    @if( $message =Session::get('success'))
+                    <div class="card-header">
+                            <h5 class="card-title"> {{$message}}</h5>
+                        </div>
+                    @endif
+</div>
 
 
-        <table class="table caption-top">
-  <caption>الاقسام</caption>
-  <thead>
-    <tr>
+<div>
+    @if( $message =Session::get('error'))
+                    <div class="card-header">
+                            <h5 class="card-title"> {{$message}}</h5>
+                        </div>
+                    @endif
+</div>
+<div class="card-body">
+            <a class="navbar-brand h1" href="{{ route('departs.create') }}">اضافة قسم</a>
+           </div>
+       
+        <div class="card-body" >
+         
+          </div>
+
+        
+        <table class="table caption-top table-success">
+        
+        <thead>
+        <caption>الاقسام</caption>
+    <tr class="table-primary">
      
       <th scope="col">اسم القسم </th>
-      <th scope="col">الشعب   </th>
-      <th scope="col">الحالات</th>
+      <th scope="col">الشعب </th>
+      <th scope="col">المستخدمين </th>
+     
+      <th scope="col">الاجرءات</th>
     </tr>
   </thead>
-
-  
   <tbody>
   @foreach ($departs as $depart)
-
-
-
-
   <tr>
- 
-       <!-- <td scope="row">{{ $depart->id }}</td>-->
-        <td>
+  
+       
+        <td class="table-primary">
         <input type="text" class="form-control" id="name" name="name"
-                            value="{{ $depart->name }}" required    style="border: none;width: 150px;" >
-                            </td>
+         value="{{ $depart->name }}" required    style="border: none;width: 150px; background-color: #cde5ed;" >
+</td>
 
-                            <td scope="row" > <a href="/departs/show?id={{$depart->id}}" class="btn btn-primary btn-sm"> اضافة شعبه</a>
+<td scope="row" >
 
+
+<a href="{{ route('show.dividions' ,$depart->id) }}" class="btn btn-primary btn-sm" title="عدد الشعب داخل {{$depart->name}} " >   {{count($depart ->divisions)}}   </a>
+    <a href="/create_divisions?id={{$depart->id}}" class="btn btn-primary btn-sm" title="اضافه شعبه داخل {{$depart->name}}"> + </a>
 </td>
 
 
+<td scope="row" >
+ <a href="{{ route('show.user' ,$depart->id) }}" class="btn btn-primary btn-sm"> عرض مستخدمين </a>
 
 
 <td>
+
 <div class="col-sm">
-                                    <form action="/departs/destroy?id={{$depart->id}}" method="post">
+
+<button  type="submit" class="btn btn-danger btn-sm" style="color: white ; margin-bottom: 10px; "><a style="color: white ; " href="{{ route('departs.edit', $depart->id) }}" >تعديل</a></button>
+
+
+<form action="departs_destroy?id={{$depart->id}}" method="post">
 
                                         @csrf
                                         @method('DELETE')
@@ -56,30 +79,17 @@
                                     </form>
                                 </div>
 </td>
-
-
-
-
-    
-
-
- 
 </tr>
-
-
 @endforeach
   </tbody>
- 
-
 </table>
+</div>
+</main>
+<script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
+  
 
 
 
 
-
-
-
-
-
-  </body>
+</body>
   @endsection
