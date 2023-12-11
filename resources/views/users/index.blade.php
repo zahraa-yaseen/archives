@@ -74,7 +74,7 @@
             <select id="inputState" name="depart_id" class="form-select" style="width: 150px;background-color: #cde5ed;
     direction: rtl;">
      @foreach ($departs as $depart)
-      <option value="{{ $depart->id }}" @if($depart->id==$user->division_id) selected="selected" @endif>{{ $depart->name }}</option>
+      <option value="{{ $depart->id }}" @if($depart->id==$user->depart_id) selected="selected" @endif>{{ $depart->name }}</option>
      @endforeach
      
     </select></td>

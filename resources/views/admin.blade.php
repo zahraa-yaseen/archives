@@ -212,7 +212,7 @@
               <div class="inner">
                 <h3>44</h3>
 
-                <a href="{{ route('user_types.create') }}" class="btn btn-outline-light me-2">اضافة المستخدمين  </a>
+                <a href="{{ route('user_types.create') }}" class="btn btn-outline-light me-2">اضافة نوع المستخدم  </a>
 
               </div>
               <div class="icon">
