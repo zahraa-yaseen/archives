@@ -23,10 +23,10 @@
                 </div>
 
                 <div class="card-body">
-                <img src="/storage/images/{{$book->cover}}" class="img-thumbnail" alt="{{$book->cover}}" style="width:50%,height:50%" > 
+                <img src="/storage/images/{{$book->cover}}" class="img-thumbnail" alt="{{$book->cover}}" > 
                 
                 @foreach($images as $image)
-               <img src="/storage/images2/{{ $image->image }}" class="img-thumbnail" alt="{{ $image->image }}" style="width: 50%; height: 50%;">
+               <img src="/storage/images2/{{ $image->image }}" class="img-thumbnail" alt="{{ $image->image }}" >
     @endforeach
 </div>
         </div>

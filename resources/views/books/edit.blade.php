@@ -5,7 +5,7 @@
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-10 col-md-8 col-lg-6">
             <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
+            <a class="navbar-brand h1" href="{{ route('book_types.index') }}">الرجوع</a>
            </div>
                 <h3>تحديث الكتاب</h3>
                 @foreach ($booktype as $booktype)
@@ -35,35 +35,29 @@
 
                    
 
-                   
-                    
                     <label for="cover">صوره الكتاب</label>
+                    <div style="display: inline-flex;">
+                   
                             <div class="card-body" >
                           
-                            <img src="/storage/images/{{$book->cover}}" class="img-thumbnail" alt="{{$book->cover}}" style="width:40%,height:40%" > 
+                            <img src="/storage/images/{{$book->cover}}" class="img-thumbnail" alt="{{$book->cover}}"  > 
 
                             <input type="file" class="form-control-file" name="cover">
-                        </div>
-                        
-                        <div class="card-body" >
-                        @guest
-                         <img src="/storage/images2/{{ $image->image }}" class="img-thumbnail" alt="{{ $image->image }}" style="width: 50%; height: 50%;">
-                           
-                         <input type="file" class="form-control-file" name="cover">
-                         @endguest
-                        </div>
                        
-
-
-
-
                         
-                        <div class="card-body">
-                  @foreach($images as $image)
-        <img src="/storage/images2/{{ $image->image }}" class="img-thumbnail" alt="{{ $image->image }}" style="width: 50%; height: 50%;">
-        @endforeach
-        </div>
-                      
+</div>
+
+
+
+
+                <div class="card-body">
+                    @foreach ($images as $image)
+                    <img src="/storage/images2/{{ $image->image }}" class="img-thumbnail" alt="{{ $image->image }}"
+                       >
+                    <input type="file" class="form-control-file" name="image[]">
+                    @endforeach
+</div>
+</div>             
                     
 
 
@@ -74,7 +68,7 @@
 
                 </form>
                 @endforeach
-@endforeach
+                @endforeach
             </div>
         </div>
     </div>

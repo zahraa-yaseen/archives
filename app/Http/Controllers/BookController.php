@@ -118,6 +118,7 @@ class BookController extends Controller
 
         $booktype = BookType::where('division_id', auth()->user()->division_id)->with('books')->get();
         $images = Image::where('book_id', $id)->get();
+       
         return view('books.edit', compact('booktype' ,'images'));
 
 
@@ -152,20 +153,52 @@ class BookController extends Controller
             $extention=$request->file('cover')->getclientoriginalextension();
             $filenamestore=$filename .'_'.time().'.'.$extention;
             $path=$request->file('cover')->storeAs('public/images',$filenamestore);
-        }
+        
         $book = BOOK::find($id);
         $book->book_no  = $request->book_no;
         $book->book_date  = $request->book_date;
         $book->book_to_from  =$request->book_to_from;
         $book->book_details  = $request->book_details;
+        $book->cover = $filenamestore;
+        
 
-        if($request ->hasFile('cover')){
+                $book->save();
+
+
+
+        }
+
+
+                
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $imageFile) {
+                $filename = $imageFile->getClientOriginalName();
+                $extension = $imageFile->getClientOriginalExtension();
+                $filenameStore = pathinfo($filename, PATHINFO_FILENAME) . '_' . time() . '.' . $extension;
+                $imageFile->storeAs('public/images2', $filenameStore);
+            
+                $image = Image::where('book_id', $id)->first(); // البحث باستخدام book_id
+                if (!$image) {
+                    // إذا لم يتم العثور على صورة مرتبطة بالكتاب، يمكنك إنشاء سجل جديد
+                    $image = new Image();
+                    $image->book_id = $book->id;
+                }
         
-        $book->cover = $filenamestore;}
-         $book->save();
-        
+                $image->image = $filenameStore;
+                $image->save();
+            }
+        }
+                
+            
+                
+
+
         return redirect('/allbooks_show_'.$request->unmberpage)->with('success', 'تم تعديل الكتاب');
-           
+              
+
+       
+
+
     }
 
     public function destroy($id,request $request)

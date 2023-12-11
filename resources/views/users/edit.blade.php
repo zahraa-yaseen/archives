@@ -31,8 +31,13 @@
                             <div class="card-body" >
                             <label for="cover">صوره  الكتاب</label>
                             <img src="/storage/images/{{$book->cover}}" class="img-thumbnail" alt="{{$book->cover}}" style="width:40%,height:40%" > 
-
                             <input type="file" class="form-control-file" name="cover">
+                        
+                        
+                        
+                        
+                        
+                        
                         </div>
                       
                     

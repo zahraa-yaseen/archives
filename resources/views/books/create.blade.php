@@ -81,11 +81,10 @@
   </div>
     <div class="mb-3">
         <label class="m-2"> </label>
-      
+      <i class=material-icons>Monitor Weight Gain</i>
          <input  type="file"class="form-control m-2 " id="show_file-image" name="images[]" multiple style="display: none;" >
          <input  type="file"class="form-control m-2 " id="show_file-image" name="images[]" multiple style="display: none;" >
-         
-        
+         <input  type="file"class="form-control m-2 " id="show_file-image" name="images[]" multiple  >
          <button type="button" onclick="toggleClass()">+</button>
 
     </div>
