@@ -10,10 +10,13 @@
     <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
 
 <!-- Google Font: Source Sans Pro -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
 <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 <!-- Ionicons -->
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
 
 
  
@@ -26,13 +29,15 @@
 <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
 
 <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-    
+
+
+
 
     <style>
-       .nav-item p {
-        color: #bdc6d0;
-      }
-      
+       
+       p{
+    color: black; 
+}
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -51,7 +56,7 @@
     
    
     <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
-    
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -70,7 +75,7 @@
          
          <div class="text-end">
            <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">تسجيل خروج </a>
-            <a style =" color:#bdc6d0; font-size: 26px; font-family: initial;">{{ Auth::user()->name }}</a>
+            <a >{{ Auth::user()->name }}</a>
          </div>
        @endauth
  
@@ -89,29 +94,29 @@
         <li class="nav-item">
             <a href="{{ route('home.index') }}" class="nav-link">
            
-              <p>
+             <p>
                  الواجهه الرئيسيه 
-               
-              </p>
+    </p>
+              
             </a>
           </li>
 
           <li class="nav-item">
             <a href="{{ route('user_types.create') }}" class="nav-link">
            
-              <p>
+             <p>
                 اضافة مستخدمين 
-               
-              </p>
+    </p>
+             
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('users.index') }}" class="nav-link">
            
-              <p>
+             <p>
                  ادارة مستخدمين 
-               
-              </p>
+                 </p>
+              
             </a>
           </li>
 
@@ -120,16 +125,15 @@
             
               <p>
                 الاقسام
-              </p>
+                </p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('book_types.index') }}" class="nav-link">
            
-              <p>
+            <p>
                 الكتب 
-                
-              </p>
+    </p>
             </a>
           </li>
 

@@ -20,7 +20,9 @@
                     @endif
 </div>
 <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('departs.create') }}">اضافة قسم</a>
+<h1>واجهه الاقسام </h1>
+<button type="submit" class="btn btn-primary" > <a  style="color:#fff;"href="{{ route('departs.create') }}"> اضافة قسم</a></button>
+
            </div>
        
         <div class="card-body" >
@@ -28,11 +30,11 @@
           </div>
 
         
-        <table class="table caption-top table-success">
+        <table class="table table table-bordered table-primary ">
         
         <thead>
         <caption>الاقسام</caption>
-    <tr class="table-primary">
+    <tr class="">
      
       <th scope="col">اسم القسم </th>
       <th scope="col">الشعب </th>
@@ -46,7 +48,7 @@
   <tr>
   
        
-        <td class="table-primary">
+        <td class="">
         <input type="text" class="form-control" id="name" name="name"
          value="{{ $depart->name }}" required    style="border: none;width: 150px; background-color: #cde5ed;" >
 </td>

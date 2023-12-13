@@ -7,7 +7,7 @@
 @extends('layouts.app-master')
 
 @section('content')
-<body>
+<body style="direction: rtl;">
     <main class="container" >
     <div>
     @if( $message =Session::get('success'))
@@ -19,21 +19,19 @@
 
         @yield('content')
         
-            <h2>واجهة مستخدمين النظام  </h2>
+           
+<button type="button" class="btn btn-primary"> <a style ="color:#fff;"    href="{{ route('home.index') }}">الرجوع</a></button>
            
         <div class="card-body">
+        <h1>واجهة مستخدمين النظام  </h1>
         <button type="submit" class="btn btn-primary" > <a  style="color:#fff;"href="{{ route('users.create') }}"> اضافة مستخدم</a></button>
            </div>
-        <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
-           </div>
+       
            
-           
-        <table class="table caption-top table-success">
+           <table class="table table table-bordered table-primary ">
   <caption>واجهه المستخدمين</caption>
   <thead>
-    <tr class="table-primary">
-      
+    <tr>
       <th scope="col">اسم المستخدم </th>
       <th scope="col">الايميل</th>
       <th scope="col">نوع المستخدم</th>
@@ -41,48 +39,49 @@
       <th scope="col">الشعب</th>
       <th ></th>
     </tr>
-  </thead>
-       
+  </thead> 
+
+
+
+
   <tbody>
   @foreach ($users as $user)
-  <tr class="table-primary">
+  <tr>
     <td colspan="10">
     <form action="/users_update_{{$user->id}}" method="post">
   @csrf
   @method("put")
-      <table class="table caption-top table-success">
-        <tr class="table-primary">
+      <table class="table table table-bordered table-primary ">
+        <tr>
         <td>
-        <input type="text" class="form-control" id="name" name="name"
-                            value="{{ $user->name }}" required    style="border: none;width: 150px; direction: rtl; background-color: #cde5ed;" >
+        <input type="text"  id="name" name="name"
+                            value="{{ $user->name }}" required >
                             </td>
 
-                            <td></td>
-        <!-- <td>{{ $user->password }}</td>-->
-        <td> <input type="text"  id="email" name="email"
-                            value="{{ $user->email}}" required    style="border: none;width: 150px; background-color: #cde5ed;" ></td>
-            <td>
-            <select id="user_types_id" name="user_types_id" class="form-select" style="width: 150px; background-color: #cde5ed;
-    direction: rtl;">
+        <td> <input type="text"  id="email" name="email" 
+                            value="{{ $user->email}}" required ></td>
+           
+           
+                            <td>
+            <select id="user_types_id" name="user_types_id"  >
+          
             @foreach ($usertypes as $usertype)
-      <option value="{{ $usertype->id }}" @if($usertype->id==$user->user_types_id) selected="selected" @endif>{{ $usertype->name }}</option>
+      <option class="option_user" value="{{ $usertype->id }}" @if($usertype->id==$user->user_types_id) selected="selected" @endif>{{$usertype->name }}</option>
      @endforeach
 
     </select></td>
 
         <td>
-            <select id="inputState" name="depart_id" class="form-select" style="width: 150px;background-color: #cde5ed;
-    direction: rtl;">
+            <select id="inputState" name="depart_id"  >
      @foreach ($departs as $depart)
-      <option value="{{ $depart->id }}" @if($depart->id==$user->depart_id) selected="selected" @endif>{{ $depart->name }}</option>
+      <option value="{{ $depart->id }}" class="option_user" @if($depart->id==$user->depart_id) selected="selected" @endif>{{ $depart->name }}</option>
      @endforeach
      
     </select></td>
     <td>
-    <select id="inputState" name="division_id" class="form-select" style="width: 150px;background-color: #cde5ed;
-    direction: rtl;">
+    <select id="inputState" name="division_id"  >
      @foreach ($divisions as $division)
-      <option value="{{ $division->id }}" @if($division->id==$user->division_id) selected="selected" @endif>{{ $division->name }}</option>
+      <option value="{{ $division->id }}" class="option_user" @if($division->id==$user->division_id) selected="selected" @endif>{{ $division->name }}</option>
      @endforeach
      
     </select></td>

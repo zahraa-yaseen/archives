@@ -14,15 +14,17 @@
                         </div>
                     @endif
 </div>
+<button type="button" class="btn btn-primary"> <a style ="color:#fff;"    href="{{ route('home.index') }}">الرجوع</a></button>
 
+            
         @yield('content')
         <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('book_types.create') }}">اضافة تصنيف كتب</a>
+          <h1>ادارة الكتب</h1>
+        <button type="submit" class="btn btn-primary" > <a  style="color:#fff;"href="{{ route('book_types.create') }}"> اضافة تصنيف كتب</a></button>
+
            </div>
            
-           <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
-           </div>
+           
         <table class="table caption-top">
   <caption>اصناف الكتب</caption>
   <thead>

@@ -13,18 +13,19 @@
                         </div>
                     @endif
 </div>
+<button type="button" class="btn btn-primary"> <a style ="color:#fff;"    href="{{ route('book_types.index') }}">الرجوع</a></button>
 
-<div class="card-body">
-            <h3> اضافة تصنيف الكتاب</h3>
-           </div>
-        <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('book_types.index') }}">الرجوع</a>
-           </div>  
+<div class="card-body" style="width: 50%; margin: auto;">
+            <h1> اضافة تصنيف الكتاب</h1>
+        <br>
+      
+           
+         
         <form action="{{ route('book_types.store') }}" method="post" >
         @csrf
         
   <div class="mb-3">
-    <label for="name" class="form-label">الاسم</label>
+    <label for="name" class="form-label">اسم تصنيف كتاب جديد</label>
     <input type="text" class="form-control" name="name" >
   </div>
   

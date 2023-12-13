@@ -3,11 +3,12 @@
 @section('content')
     <form method="post" action="{{ route('users.store') }}">  
                    @csrf
+<button type="button" class="btn btn-primary"> <a style ="color:#fff; text-decoration: none"    href="{{ route('users.index') }}">الرجوع</a></button>
        
+        <div class="card-body" id="div_auth">
         <h1 class="h3 mb-3 fw-normal">اضافه مستخدم</h1>
-        <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('users.index') }}">الرجوع</a>
-           </div>
+           
+           
 
 
         <div class="form-group form-floating mb-3">
@@ -42,4 +43,5 @@
         
       
     </form>
+    </div>
 @endsection

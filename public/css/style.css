@@ -1,0 +1,44 @@
+body{
+    background-color: #87adc3;
+}
+
+.table{
+    text-align: right;
+}
+.main-sidebar{
+    background-color: #87adc3;
+}
+.main-sidebar a , li{
+color: black;
+font-size: 24px;
+font-family: serif;
+}
+.card-body a{
+    border: black solid 0px;
+    padding: 10px 15px;
+    color: black;
+font-size: 24px;
+font-family: serif;
+    box-shadow: 3px 3px 10px #d1d1d1  ;
+    
+}
+
+.card-body h1{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+table input{
+    border: none;
+    background-color: #cfe2ff;
+    font-size: 17px; 
+}
+table select{
+    background-color: #cfe2ff;
+    border: none;
+
+}
+
+
+#div_auth{width: 50%;
+    margin: auto;}

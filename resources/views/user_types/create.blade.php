@@ -6,7 +6,7 @@
    
 
 <main class="container" >
-        <h2>اضافة مستخدين للنظام</h2>
+       
         <div>
     @if( $message =Session::get('success'))
                     <div class="card-header">
@@ -14,14 +14,18 @@
                         </div>
                     @endif
 </div>
-        <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
-           </div>
+<button type="button" class="btn btn-primary"> <a style ="color:#fff;"    href="{{ route('home.index') }}">الرجوع</a></button>
+
+        <div class="card-body "  style="width: 50%;
+    margin: auto;"  >
+
+        <h1>اضافة مستخدمين للنظام</h1>
+          <br>
         <form action="{{ route('user_types.store') }}" method="post" >
         @csrf
         
   <div class="mb-3">
-    <label for="name" class="form-label">الاسم </label>
+    <label for="name" class="form-label">اسم المستخدم الجديد </label>
     <input type="text" class="form-control" name="name" >
   </div>
 
@@ -37,6 +41,7 @@
 
   <button type="submit" class="btn btn-primary">ارسال</button>
 </form>
+</div>
     </main>
 
     <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>

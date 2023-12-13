@@ -3,9 +3,9 @@
 @section('content')
 <body>
 <main class="container" >
+<button type="button" class="btn btn-primary"> <a style ="color:#fff;"    href="{{ route('departs.index') }}">الرجوع</a></button>
 <div class="card-body">
-<h5>اضافة قسم</h5>
-            <button type="button" class="btn btn-primary"> <a style ="color:#fff;"   class="navbar-brand " href="{{ route('departs.index') }}">الرجوع</a></button>
+<h1>اضافة قسم</h1>
           </div>
 
 
