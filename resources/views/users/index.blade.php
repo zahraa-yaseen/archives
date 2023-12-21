@@ -79,13 +79,13 @@
      
     </select></td>
     <td>
-    <select id="inputState" name="division_id"  >
-     @foreach ($divisions as $division)
-      <option value="{{ $division->id }}" class="option_user" @if($division->id==$user->division_id) selected="selected" @endif>{{ $division->name }}</option>
-     @endforeach
-     
-    </select></td>
-
+    <select id="inputState" name="division_id">
+        <option value="" class="option_user" selected disabled>    </option>
+        @foreach ($divisions as $division)
+            <option value="{{ $division->id }}" class="option_user" @if($division->id==$user->division_id) selected="selected" @endif>{{ $division->name }}</option>
+        @endforeach
+    </select>
+</td>
 
 
 

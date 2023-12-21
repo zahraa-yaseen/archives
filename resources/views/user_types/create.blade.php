@@ -19,13 +19,13 @@
         <div class="card-body "  style="width: 50%;
     margin: auto;"  >
 
-        <h1>اضافة مستخدمين للنظام</h1>
+        <h1>اضافة نوع مستخدم للنظام</h1>
           <br>
         <form action="{{ route('user_types.store') }}" method="post" >
         @csrf
         
   <div class="mb-3">
-    <label for="name" class="form-label">اسم المستخدم الجديد </label>
+    <label for="name" class="form-label">نوع المستخدم الجديد </label>
     <input type="text" class="form-control" name="name" >
   </div>
 
@@ -36,8 +36,8 @@
     <input type="text" class="form-control" name="sequence" >
   </div>
   
-
   
+ 
 
   <button type="submit" class="btn btn-primary">ارسال</button>
 </form>

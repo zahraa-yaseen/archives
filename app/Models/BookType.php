@@ -11,7 +11,8 @@ class BookType extends Model
     protected $fillable = [
         'name',
         'division_id',
-        'sequence'
+        'sequence',
+        'depart_id'
                           ];
     
 

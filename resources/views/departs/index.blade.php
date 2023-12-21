@@ -68,7 +68,6 @@
 <td>
 
 <div class="col-sm">
-
 <button  type="submit" class="btn btn-danger btn-sm" style="color: white ; margin-bottom: 10px; "><a style="color: white ; " href="{{ route('departs.edit', $depart->id) }}" >تعديل</a></button>
 
 

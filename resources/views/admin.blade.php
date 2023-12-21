@@ -174,16 +174,20 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
+       
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
-              <div class="inner">
+           
+            <div class="inner">
                 <h3>150</h3>
 
                 
                 <a href="{{ route('departs.index') }}" class="btn btn-outline-light me-2">  الاقسام </a>
 
               </div>
+
+
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
@@ -221,7 +225,7 @@
             </div>
           </div>
           <!-- ./col -->
-          
+         
           <div class="col-lg-3 col-6" >
             <!-- small box -->
             <div class="small-box bg-danger">

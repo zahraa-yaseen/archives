@@ -100,16 +100,17 @@
               
             </a>
           </li>
-
+         
           <li class="nav-item">
             <a href="{{ route('user_types.create') }}" class="nav-link">
            
              <p>
-                اضافة مستخدمين 
+                اضافة نوع  مستخدم 
     </p>
              
             </a>
           </li>
+         
           <li class="nav-item">
             <a href="{{ route('users.index') }}" class="nav-link">
            
@@ -128,6 +129,7 @@
                 </p>
             </a>
           </li>
+         
           <li class="nav-item">
             <a href="{{ route('book_types.index') }}" class="nav-link">
            
@@ -148,6 +150,7 @@
         @yield('content')
     </main>
     <script src="js/js.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
    
   </body>

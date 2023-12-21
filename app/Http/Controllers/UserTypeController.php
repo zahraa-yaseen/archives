@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserType;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class UserTypeController extends Controller
@@ -37,19 +39,20 @@ class UserTypeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        /*$request->validate([
             'name' => 'required',
             'sequence' => 'required'
-        ]);
+        ]);*/
+       
         $user_type = UserType::create([
             "name" =>$request->name,
-            "sequence" =>$request->sequence
-            
+            "sequence" =>$request->sequence,
+           
                 ]
         );
         
         return redirect('/usertypes_create') 
-          ->with('success', 'تم اضافه مستخدم للنظام');
+          ->with('success', 'تم اضافه  نوع مستخدم ' . "" .$user_type->name);
     }
 
     /**

@@ -16,8 +16,6 @@ class BookController extends Controller
     {
         if(!auth())return redirect('login');
         $book = Book::all();
-        
-
         return view('books.index', compact('book' ));
     }
     public function create($id)

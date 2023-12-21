@@ -20,8 +20,11 @@
         @yield('content')
         <div class="card-body">
           <h1>ادارة الكتب</h1>
-        <button type="submit" class="btn btn-primary" > <a  style="color:#fff;"href="{{ route('book_types.create') }}"> اضافة تصنيف كتب</a></button>
-
+          @if (Auth::user()->checkbox_field ==='on')
+    <button type="submit" class="btn btn-primary">
+        <a style="color:#fff;" href="{{ route('book_types.create') }}"> اضافة تصنيف كتب</a>
+    </button>
+@endif
            </div>
            
            
@@ -46,13 +49,10 @@
 
   <tbody>
   @foreach ($booktype as $booktype)
- 
     <tr>
         <td>{{ $booktype->name }}</td>
         <td>{{ $booktype->sequence }}</td>
        <td>
-      
-  
    {{count($booktype ->books)}}
 
 </td>
@@ -60,7 +60,7 @@
         <td class="Cases" style="display: flex;">
 
   <div class="col-sm">
- <a href="{{ route('books.create' ,$booktype->id) }}" class="btn btn-primary btn-sm">اضافة كتاب</a>
+ <a href="{{ route('books.create' ,$booktype->id) }}" class="btn btn-primary btn-sm" data-action="addBook">اضافة كتاب</a>
 </div>
 
 
@@ -74,7 +74,7 @@
 
 
 <div class="col-sm">
-    <form action="{{route('booktype.destroy', $booktype->id) }}" method="post">
+    <form action="{{route('booktype.destroy', $booktype->id) }}" method="post" data-action="deleteBookType">
                   @csrf
         @method('DELETE')                         
           <button type="submit" class="btn btn-danger btn-sm">حذف</button>
@@ -97,4 +97,5 @@
   </body>
   @endsection
 
-
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  

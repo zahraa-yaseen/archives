@@ -10,7 +10,8 @@ class UserType extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'sequence',
+        'sequence',  
     ];
+    
     
 }

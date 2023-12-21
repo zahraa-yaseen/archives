@@ -20,10 +20,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path')->nullable();
             $table->Integer('user_types_id')->nullable();
             $table->Integer('depart_id') ->nullable();
             $table->Integer('division_id')->nullable();
+            $table->string('checkbox_field')->nullable();
+            $table->integer('sequence')->nullable();
             $table->rememberToken();
             $table->timestamps();
             

@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->Integer('division_id');
+            $table->Integer('depart_id');
             $table->Integer('sequence');
+            
             $table->timestamps();
         });
     }

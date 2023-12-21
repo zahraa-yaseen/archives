@@ -24,11 +24,12 @@ class User extends Authenticatable
         'password',
         'email_verified_at',
         'current_team_id',
-        'profile_photo_path',
-         'user_types_id',
+        'user_types_id',
         'depart_id',
         'division_id',
-
+        'checkbox_field',
+        'sequence',
+        
       ];
       public function depart(){
         return $this ->belongsTo('App\Depart' ,'depart_id');
@@ -36,9 +37,10 @@ class User extends Authenticatable
     public function division(){
         return $this ->belongsTo('App\Division' ,'division_id');
     }
+   
     
     public function user_type(){
-        return $this ->belongsTo('App\User_Type' ,'user_types_id');
+        return $this ->belongsTo('App\User_Type' , 'user_types_id');
     }
       public function setPasswordAttribute($value)
 {

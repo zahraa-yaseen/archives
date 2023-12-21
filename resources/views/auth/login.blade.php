@@ -11,7 +11,7 @@
 
         <form method="post" action="{{ route('login.perform') }}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        
+        @include('layouts.partials_messages')
         <div class="form-group form-floating mb-3">
             <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
             <label for="floatingName">  الايميل او اسم المستخدم</label>

@@ -16,16 +16,14 @@ class BookTypeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+{
+    if (auth()->user()->division_id == null) {
+        $booktype = BookType::where('depart_id', auth()->user()->depart_id)->with('books')->get();
+    } else {
         $booktype = BookType::where('division_id', auth()->user()->division_id)->with('books')->get();
-       
-
-return view('books.index', compact('booktype'));
-
-
-
-
     }
+    return view('books.index', compact('booktype'));
+}
 
     /**
      * Show the form for creating a new resource.
@@ -54,8 +52,8 @@ return view('books.index', compact('booktype'));
         $Booktype = BookType::create([
             "name" =>$request->name,
             "division_id" =>$user->division_id,
-            "sequence" =>$request->sequence
-            
+            "sequence" =>$request->sequence,
+            "depart_id" =>$user->depart_id
                 ]
         );
         
@@ -76,18 +74,7 @@ return view('books.index', compact('booktype'));
     $booktype = BookType::where('division_id', auth()->user()->division_id)->with('books')->get();
     
 
-    
-
-    
-      
-
         return view('books.allbooks', compact('booktype'));}
-
-
-
-
-
-
 
 
 
