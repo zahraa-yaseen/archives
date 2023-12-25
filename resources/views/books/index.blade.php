@@ -6,7 +6,7 @@
     
    
 
-    <main class="container" >
+    <main class="container" style="direction: rtl" >
     <div>
     @if( $message =Session::get('success'))
                     <div class="card-header">
@@ -14,9 +14,7 @@
                         </div>
                     @endif
 </div>
-<button type="button" class="btn btn-primary"> <a style ="color:#fff;"    href="{{ route('home.index') }}">الرجوع</a></button>
-
-            
+<button type="button" class="btn btn-primary"> <a style ="color:#fff;"    href="{{ route('home.index') }}">الرجوع</a></button>  
         @yield('content')
         <div class="card-body">
           <h1>ادارة الكتب</h1>
@@ -28,22 +26,14 @@
            </div>
            
            
-        <table class="table caption-top">
+           <table class="table table table-bordered table-primary " style='text-align: center;'>
   <caption>اصناف الكتب</caption>
   <thead>
     <tr>
-  
-
 <th scope="col">اسم الملف </th>
-
 <th scope="col">التسلسل</th>
 <th scope="col">عدد الكتب</th>
-
-
-
-
-
-
+<th scope="col">الاجراءات </th>
     </tr>
   </thead>
 

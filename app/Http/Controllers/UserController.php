@@ -125,6 +125,8 @@ class UserController extends Controller
         $user->user_types_id  = $request->user_types_id;
         $user->depart_id  = $request->depart_id;
         $user->division_id  = $request->division_id;
+        $user->sequence  = $request->sequence;
+
 
 
 

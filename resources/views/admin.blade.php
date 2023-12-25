@@ -38,7 +38,11 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  
+  @if( $message =Session::get('success'))
+                    <div class="card-header">
+                            <h5 class="card-title"> {{$message}}</h5>
+                        </div>
+                    @endif
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
@@ -175,6 +179,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
        
+       
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
@@ -198,7 +203,8 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>
+                11</h3>
 
              
                 <a href="{{ route('users.index') }}" class="btn btn-outline-light me-2"> ادارة المستخدمين   </a>
@@ -214,7 +220,7 @@
             <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>44</h3>
+                <h3>22</h3>
 
                 <a href="{{ route('user_types.create') }}" class="btn btn-outline-light me-2">اضافة نوع المستخدم  </a>
 
@@ -225,7 +231,7 @@
             </div>
           </div>
           <!-- ./col -->
-         
+       
           <div class="col-lg-3 col-6" >
             <!-- small box -->
             <div class="small-box bg-danger">

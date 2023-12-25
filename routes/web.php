@@ -19,7 +19,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Home Routes
      */
-    Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('home', 'HomeController@index')->name('home.index');
     
 
         
@@ -108,17 +108,7 @@ Route::get('/books_create_{id}', 'BookController@create')->name('books.create');
         Route::get('/divisions', 'DivisionController@create')->name('divisions.create');
         Route::post('/divisions/store', 'DivisionController@store')->name('divisions.store');
 
-        Route::get('/results', function () {
-           $book = App\Book::where('book_details', 'like' ,  '%' . request('search') . '%' )->get();
-            return view('results.results')
-            ->with('books' , $book) 
-            ->with('book_details' ,  'Result : '. request('search') )
-            ->with('settings',  App\Setting::first() )
-            ->with('blog_name' , App\Setting::first()->blog_name)
-            ->with('categories' , App\Category::take(5)->get() )   
-            ->with('query' , request('search') )   ;
-            
-        }) ;
+        
 
 
         

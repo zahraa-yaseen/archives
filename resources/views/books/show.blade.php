@@ -3,11 +3,13 @@
 @section('content')
 <body>
     
-    <div class="container ">
+    <div class="container " style="direction: rtl">
+<button type="submit" class="btn btn-primary" > <a  style="color:#fff;"   href="{{ route('allbooks.show', $book->book_type_id ) }}">  رجوع</a></button>
+
         <div class="row">
+
         <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
-           </div>
+           
                <div class="card">
                 <div class="card-header">
                     <h2 class="card-title"> رقم الكتاب:{{ $book->book_no }}</h2>

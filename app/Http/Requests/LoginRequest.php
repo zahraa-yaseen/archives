@@ -33,12 +33,13 @@ class LoginRequest extends FormRequest
     {
         
         $username = $this->get('username');
-        
 // هان يتاكد من ان المعلومات الى وصلن  هو بريد الكتروني او لا اذا راجع بريد راح يرجعون كلمه السر والبريد
         if ($this->isEmail($username)) {
-           
+         
+          
             return [
                 'email' => $username,'password' => $this->get('password')
+
             ];
 
            

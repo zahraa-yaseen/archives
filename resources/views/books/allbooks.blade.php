@@ -14,13 +14,19 @@
                         </div>
                     @endif
 </div>
-        <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('book_types.index') }}">الرجوع</a>
-           </div>
 
-<form method="GET" action="/results">
-  <input class="input" name="search" placeholder="enter your search ..">
-</form>
+
+<button type="submit" class="btn btn-primary" > <a  style="color:#fff;"href="{{ route('book_types.index') }}"> رجوع </a></button>
+
+        <div class="card-body" style="direction: rtl">
+        @foreach ($booktype as $booktype)
+  @foreach ($booktype->books as $item)
+
+
+
+        <h1>   كتب قسم  ({{$booktype->name}})</h1>
+
+  <br>
            
         <table class="table caption-top">
   <caption>الكتب</caption>
@@ -37,8 +43,7 @@
     </tr>
   </thead>
   <tbody>
-  @foreach ($booktype as $booktype)
-  @foreach ($booktype->books as $item)
+  
     <tr>
         <td>{{ $item->book_no }}</td>
         <td>{{ $item->book_date }}</td>
@@ -49,7 +54,14 @@
         <td class="Cases" style="display: flex;">
 
         <div class="col-sm">
-        <a href="{{ route('books.show', $item->id ) }}" class="btn btn-primary btn-sm">عرض</a>
+        <a href="{{ route('books.show', $item->id ) }}"  class="btn btn-primary"   
+        
+        style="border: none; 
+    padding: 0px 11px;
+    color: black;
+    font-size: 20px;
+    
+   box-shadow: none;">عرض</a>
 </div>
 
 
@@ -69,7 +81,18 @@
          </div>
 
                                 <div class="col-sm">
-                <a href="{{ route('books.edit', $item->id) }}" class="btn btn-primary btn-sm">تعديل</a>
+                <a href="{{ route('books.edit', $item->id) }}" class="btn btn-primary btn-sm"
+                
+                style="border: none;
+    padding: 0px 11px;
+    color: black;
+    font-size: 20px;
+    
+     box-shadow: none;"
+                
+                
+                
+                >تعديل</a>
 
 </div>
 

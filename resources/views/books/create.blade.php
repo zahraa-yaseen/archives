@@ -40,10 +40,10 @@
 
     <main class="container" >
        
-       
-        <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('home.index') }}">الرجوع</a>
-           </div>
+<button type="button" class="btn btn-primary"> <a style ="color:#fff;"    href="{{ route('home.index') }}">الرجوع</a></button>  
+        
+        <div class="card-body" style='width: 50% ; margin: auto;'>
+        <h1>واجهة مستخدمين النظام </h1>
         <form action="{{ route('books.store' , $bookType->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
@@ -54,9 +54,8 @@
     <input  type="text" class="form-control" name="book_no" aria-describedby="number">
   </div>
 
-
-
   <div class="mb-3">
+
     <label for="book_date" class="form-label">تاريخ الكتاب</label>
 
     <input type="date" name="book_date" class="form-control"  placeholder="dd-mm-yyyy"> 
@@ -64,13 +63,13 @@
   
 
   <div class="mb-3">
-    <label for="book_details" class="form-label">الموضوع </label>
-    <input type="text" class="form-control" name="book_details">
+    <label for="book_details" class="form-label">العنوان </label>
+    <textarea  type="text" class="form-control" name="book_details"></textarea>
   </div>
 
   <div class="mb-3">
     <label for="book_details" class="form-label">جهة الكتاب</label>
-    <input type="text" class="form-control" name="book_to_from">
+    <textarea type="text" class="form-control" name="book_to_from"></textarea>
   </div>
 
   
@@ -80,16 +79,22 @@
    <input type="file" id="input-file-now-custom-3" class="form-control m-2" name="cover">
   </div>
     <div class="mb-3">
-        <label class="m-2"> </label>
-      <i class=material-icons>Monitor Weight Gain</i>
-         <input  type="file"class="form-control m-2 " id="show_file-image" name="images[]" multiple style="display: none;" >
-         <input  type="file"class="form-control m-2 " id="show_file-image" name="images[]" multiple style="display: none;" >
+        <label class="m-2"> صوره ملعقه بالكتاب</label>
+         <input  type="file"class="form-control m-2 " id="show_file-image" name="images[]" multiple style="display: none;"  >
          <input  type="file"class="form-control m-2 " id="show_file-image" name="images[]" multiple  >
-         <button type="button" onclick="toggleClass()">+</button>
+         <button type="button" id="click_show_image" onclick="toggleClass()"  title="اضافة صوره">+</button>
+
+
+    
+  
+         <input  type="file"class="form-control m-2 " id="show_file-image2" name="images[]" multiple style="display: none;" >
+         <button type="button" id="click_show_image2" onclick="toggleClass2()" style="display: none;" >+</button>
 
     </div>
   <button type="submit" class="btn btn-primary">ارسال</button>
+  
 </form>
+    </div>
     </main>
 
     <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>

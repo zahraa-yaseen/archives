@@ -37,6 +37,10 @@
       <th scope="col">نوع المستخدم</th>
       <th scope="col">القسم</th>
       <th scope="col">الشعب</th>
+      <th scope="col">التسلسل</th>
+      <th scope="col">تحديث البيانات</th>
+
+
       <th ></th>
     </tr>
   </thead> 
@@ -86,7 +90,10 @@
         @endforeach
     </select>
 </td>
-
+<td>
+        <input type="text"  id="sequence" name="sequence"
+                            value="{{ $user->sequence }}" required >
+                            </td>
 
 
 
@@ -96,10 +103,9 @@
 <button type="submit" class="btn btn-primary"> تحديث</button>
 </div>
  </td>
- <!--
+           <!--
 <td>
 <div class="col-sm">
-
 <form action="user_destroy"  method="post">
 @csrf
     @method('DELETE') 
@@ -110,6 +116,8 @@
      </div>
 </dt>
 -->
+
+
 </table>
  </form>
     </td>

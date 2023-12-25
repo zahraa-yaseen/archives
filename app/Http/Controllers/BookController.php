@@ -98,7 +98,6 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         $images = Image::where('book_id', $id)->get();
-
         return view('books.show',compact('book' ,'images'));
 
 

@@ -2,14 +2,15 @@
 
 @section('content')
 <div class="container h-100 mt-5">
+@foreach ($booktype as $booktype)
+  @foreach ($booktype->books as $book)
+<button type="submit" class="btn btn-primary" > <a  style="color:#fff;"   href="{{ route('allbooks.show', $book->book_type_id ) }}">  رجوع</a></button>
+
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-10 col-md-8 col-lg-6">
             <div class="card-body">
-            <a class="navbar-brand h1" href="{{ route('book_types.index') }}">الرجوع</a>
-           </div>
-                <h3>تحديث الكتاب</h3>
-                @foreach ($booktype as $booktype)
-  @foreach ($booktype->books as $book)
+                <h1>تحديث الكتاب</h1>
+                
                 <form action="{{ route('books.update', $book->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -36,7 +37,7 @@
                    
 
                     <label for="cover">صوره الكتاب</label>
-                    <div style="display: inline-flex;">
+                    <div   style="display: inline-flex;">
                    
                             <div class="card-body" >
                           
