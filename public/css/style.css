@@ -42,3 +42,8 @@ table select{
 
 #div_auth{width: 50%;
     margin: auto;}
+     
+
+    .small-box .inner{
+        padding: 34px
+    }

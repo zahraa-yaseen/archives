@@ -41,6 +41,6 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
-        return redirect('/')->with('success', "  تم انشاء الاحساب بنجاح");
+        return redirect('home')->with('success', "  تم انشاء الاحساب بنجاح");
     }
 }

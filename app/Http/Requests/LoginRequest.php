@@ -38,7 +38,8 @@ class LoginRequest extends FormRequest
          
           
             return [
-                'email' => $username,'password' => $this->get('password')
+                
+                'email' => $username, 'password'=> $this->get('password')
 
             ];
 

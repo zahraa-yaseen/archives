@@ -66,14 +66,7 @@ class UserController extends Controller
         
         return redirect('/users_index')->with('success', "تم اضافة مستخدم جديد للنظام" . $user->name);
     }
-    
 
-
-    
-
-    
-
-   
     /**
      * Display the specified resource.
      *
@@ -135,7 +128,7 @@ $user->save();
 
        
 
-        return redirect()->route('users.index')->with('success',  ' تم تحديث معلومات المستخدم' . $user->name);
+        return redirect()->route('users.index')->with('success',  ' تم تحديث معلومات ' .' '. $user->name);
            
     }
 

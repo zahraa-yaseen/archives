@@ -11,31 +11,26 @@
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  
+ 
+
   
   
   <!-- 
   <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
    Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  
   <!-- overlayScrollbars 
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
  
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
  
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">-->
-  <style>
-      .nav-item p {
-        color: #bdc6d0;
-       
-      }
-      body{
-        direction: ltr;
-      }
-      </style>
+  
+      <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed" >
-<div class="wrapper">
+<body class="hold-transition sidebar-mini layout-fixed" style="direction: rtl;">
+<div class="wrapper" style="background-color: white;">
 
   <!-- Preloader -->
   @if( $message =Session::get('success'))
@@ -43,37 +38,34 @@
                             <h5 class="card-title"> {{$message}}</h5>
                         </div>
                     @endif
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+  
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    
+  <div >
+  <nav class="navbar-light" style="padding: 17px; background-color: #ffffff;text-align: right;">
     <ul class="navbar-nav">
       
       <li class="nav-item" >
         @auth
-           
-          
+
              <a href="{{ route('logout.perform') }}" class="btn btn-primary me-2">تسجيل خروج </a>
               <span style ="  font-size: 26px; font-family: initial;">{{ Auth::user()->name }}</span>
            </div>
          @endauth
          </li>
-         <li class="nav-item">
+         
          @guest
           
-             <a href="{{ route('login.show') }}" class="btn btn-outline-light me-2">تسجيل الدخول</a>
-             <a href="{{ route('register.perform') }}" class="btn btn-warning">اشتراك</a>
+             <a href="{{ route('login.show') }}" class="btn btn-outline-light me-2" style="font-size:20px;">تسجيل الدخول</a>
+             <a href="{{ route('register.perform') }}" class="btn btn-warning" style="font-size:20px;">اشتراك</a>
            </div>
-         @endguest</li>
+         @endguest
       </ul>
 
 
 
  </nav>
-
+</div>
 <!-------------------------------------------------------------------------------------------------------------------->
 
 <!--
@@ -160,7 +152,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="">الارشفه</h1>
+            <h1 class="">نظام ارشفة الكتب </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -179,13 +171,13 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
        
-       
+        @if (Auth::user()->sequence ===0)
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
            
             <div class="inner">
-                <h3>150</h3>
+                
 
                 
                 <a href="{{ route('departs.index') }}" class="btn btn-outline-light me-2">  الاقسام </a>
@@ -203,8 +195,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>
-                11</h3>
+                
 
              
                 <a href="{{ route('users.index') }}" class="btn btn-outline-light me-2"> ادارة المستخدمين   </a>
@@ -220,7 +211,9 @@
             <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>22</h3>
+               
+
+
 
                 <a href="{{ route('user_types.create') }}" class="btn btn-outline-light me-2">اضافة نوع المستخدم  </a>
 
@@ -231,12 +224,12 @@
             </div>
           </div>
           <!-- ./col -->
-       
+       @endif
           <div class="col-lg-3 col-6" >
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-danger ">
               <div class="inner">
-                <h3>65</h3>
+                
                 <a href="{{ route('book_types.index') }}" class="btn btn-outline-light me-2"> ادارة كتب</a>
 
                
